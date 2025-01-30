@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAF7F2;
+    --foreground: #1A202C;
+    
+    --primary: #4A5568;
+    --primary-dark: #2D3748;
+    --primary-light: #718096;
+    
+    --secondary: #ED8936;
+    --secondary-dark: #DD6B20;
+    --secondary-light: #F6AD55;
+    
+    --text: #1A202C;
+    --text-light: #4A5568;
+  }
+
+  .dark {
+    --background: #1A202C;
+    --foreground: #F7FAFC;
+    --text: #F7FAFC;
+    --text-light: #CBD5E0;
+  }
+
+  body {
+    @apply bg-background text-text min-h-screen;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 max-w-7xl;
+  }
+
+  .heading-1 {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-text;
+  }
+
+  .heading-2 {
+    @apply font-serif text-3xl md:text-4xl font-semibold text-text;
+  }
+
+  .heading-3 {
+    @apply font-serif text-2xl md:text-3xl font-semibold text-text;
+  }
+
+  .body-text {
+    @apply text-base md:text-lg text-text-light leading-relaxed;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white px-6 py-2 
+    rounded-lg transition-colors duration-200 inline-flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-dark text-white px-6 py-2 
+    rounded-lg transition-colors duration-200 inline-flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg 
+    transition-shadow duration-300;
+  }
+
+  .nav-link {
+    @apply text-text hover:text-primary transition-colors duration-200;
+  }
+
+  /* Cart styles */
+  .cart-item {
+    @apply flex gap-4 py-4 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .cart-item-image {
+    @apply relative w-24 h-24 overflow-hidden rounded-md;
+  }
+
+  .cart-item-details {
+    @apply flex-1;
+  }
+
+  .cart-item-title {
+    @apply text-lg font-medium text-text dark:text-white;
+  }
+
+  .cart-item-price {
+    @apply text-primary dark:text-gray-300 font-semibold mt-1;
+  }
+
+  .cart-quantity-controls {
+    @apply flex items-center border border-gray-300 dark:border-gray-600 rounded-lg;
+  }
+
+  .cart-quantity-btn {
+    @apply px-3 py-1 text-gray-600 dark:text-gray-400 hover:bg-gray-100 
+    dark:hover:bg-gray-700 transition-colors;
+  }
+
+  .cart-quantity-text {
+    @apply px-3 py-1 text-text dark:text-white;
+  }
+
+  .cart-remove-btn {
+    @apply text-red-500 hover:text-red-600 transition-colors;
+  }
+}
