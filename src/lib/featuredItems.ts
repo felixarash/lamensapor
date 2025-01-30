@@ -49,7 +49,7 @@ export const featuredItems = [
     name: 'Berry Smoothie',
     description: 'Mixed berries blended with yogurt and honey',
     price: 6.99,
-    image: '/images/products/smoothie.jpg',
+    image: '/products/berrysmothie.jpg',
     category: 'beverages',
     inventory: 60
   }
