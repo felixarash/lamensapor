@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
 export default function SignInPage() {
@@ -16,22 +15,25 @@ export default function SignInPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const result = await signIn('credentials', {
-        redirect: false,
-        email: formData.email,
-        password: formData.password,
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
 
-      if (result?.error) {
-        setError('Invalid credentials')
-      } else {
+      if (response.ok) {
         router.push('/account')
+      } else {
+        setError('Invalid credentials')
       }
-    } catch (error: unknown) {
+    } catch (error) {
       setError('An error occurred during sign in')
       console.error(error)
     }
   }
+
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="max-w-md mx-auto">
@@ -49,7 +51,7 @@ export default function SignInPage() {
               Email
             </label>
             <input
-              type="email"
+              type="email" 
               id="email"
               required
               className="form-input"
