@@ -5,7 +5,7 @@ export const menuItems = [
       name: 'Classic Breakfast',
       description: 'Two eggs any style, bacon, toast, and hash browns',
       price: 13.99,
-      image: '/images/products/classic-breakfast.jpg',
+      image: '/products/breakfast.jpg',
       category: 'breakfast',
       inventory: 50
     },
@@ -14,7 +14,7 @@ export const menuItems = [
       name: 'Eggs Benedict',
       description: 'Poached eggs on English muffin with hollandaise sauce',
       price: 15.99,
-      image: '/images/products/eggs-benedict.jpg',
+      image: '/products/eggs.jpg',
       category: 'breakfast',
       inventory: 40
     },
@@ -23,7 +23,7 @@ export const menuItems = [
       name: 'French Toast',
       description: 'Thick-cut brioche with maple syrup and berries',
       price: 12.99,
-      image: '/images/products/french-toast.jpg',
+      image: '/products/frenchtoast.jpg',
       category: 'breakfast',
       inventory: 40
     },
@@ -32,7 +32,7 @@ export const menuItems = [
       name: 'Granola Bowl',
       description: 'House-made granola with yogurt and fresh fruit',
       price: 9.99,
-      image: '/images/products/granola-bowl.jpg',
+      image: '/products/granola.jpg',
       category: 'breakfast',
       inventory: 45
     },
@@ -41,7 +41,7 @@ export const menuItems = [
       name: 'Avocado Toast',
       description: 'Fresh avocado on sourdough with cherry tomatoes',
       price: 11.99,
-      image: '/images/products/avocado-toast.jpg',
+      image: '/products/avocado-toast.jpg',
       category: 'breakfast',
       inventory: 35
     },
@@ -52,7 +52,7 @@ export const menuItems = [
       name: 'Grilled Chicken Salad',
       description: 'Mixed greens with grilled chicken and balsamic dressing',
       price: 14.99,
-      image: '/images/products/chicken-salad.jpg',
+      image: '/products/chicken-salad.jpg',
       category: 'lunch',
       inventory: 35
     },
@@ -61,7 +61,7 @@ export const menuItems = [
       name: 'Club Sandwich',
       description: 'Triple-decker with turkey, bacon, lettuce, and tomato',
       price: 13.99,
-      image: '/images/products/club-sandwich.jpg',
+      image: '/products/club-sandwich.jpg',
       category: 'lunch',
       inventory: 45
     },
@@ -70,7 +70,7 @@ export const menuItems = [
       name: 'Quinoa Bowl',
       description: 'Nutrient-rich quinoa with roasted vegetables',
       price: 14.99,
-      image: '/images/products/quinoa-bowl.jpg',
+      image: '/products/qpolina.jpg',
       category: 'lunch',
       inventory: 30
     },

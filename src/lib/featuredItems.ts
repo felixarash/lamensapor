@@ -4,7 +4,7 @@ export const featuredItems = [
     name: 'Artisan Coffee',
     description: 'Rich, locally roasted organic coffee with complex flavors',
     price: 4.99,
-    image: '/products/coffee.jpg',
+    image: '/products/product1.jpg',
     category: 'beverages',
     inventory: 100
   },
@@ -22,7 +22,7 @@ export const featuredItems = [
     name: 'Quinoa Bowl',
     description: 'Nutrient-rich quinoa with roasted vegetables',
     price: 14.99,
-    image: '/products/quinoa-bowl.jpg',
+    image: '/products/qpolina.jpg',
     category: 'lunch',
     inventory: 30
   },
