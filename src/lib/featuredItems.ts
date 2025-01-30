@@ -4,7 +4,7 @@ export const featuredItems = [
     name: 'Artisan Coffee',
     description: 'Rich, locally roasted organic coffee with complex flavors',
     price: 4.99,
-    image: '/images/products/coffee.jpg',
+    image: '/products/coffee.jpg',
     category: 'beverages',
     inventory: 100
   },
@@ -13,7 +13,7 @@ export const featuredItems = [
     name: 'Avocado Toast',
     description: 'Fresh avocado on sourdough with cherry tomatoes',
     price: 12.99,
-    image: '/images/products/avocado-toast.jpg',
+    image: '/products/avocado-toast.jpg',
     category: 'breakfast',
     inventory: 50
   },
@@ -22,7 +22,7 @@ export const featuredItems = [
     name: 'Quinoa Bowl',
     description: 'Nutrient-rich quinoa with roasted vegetables',
     price: 14.99,
-    image: '/images/products/quinoa-bowl.jpg',
+    image: '/products/quinoa-bowl.jpg',
     category: 'lunch',
     inventory: 30
   },
@@ -31,7 +31,7 @@ export const featuredItems = [
     name: 'Greek Salad',
     description: 'Fresh Mediterranean salad with feta cheese',
     price: 11.99,
-    image: '/images/products/greek-salad.jpg',
+    image: '/products/greeksalad.jpg',
     category: 'lunch',
     inventory: 40
   },
@@ -40,7 +40,7 @@ export const featuredItems = [
     name: 'Matcha Latte',
     description: 'Premium Japanese matcha with steamed milk',
     price: 5.99,
-    image: '/images/products/matcha-latte.jpg',
+    image: '/products/latte.jpg',
     category: 'beverages',
     inventory: 80
   },

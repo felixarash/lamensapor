@@ -39,7 +39,7 @@ export default function Footer() {
               <li>123 Restaurant Street</li>
               <li>City, State 12345</li>
               <li>Phone: (123) 456-7890</li>
-              <li>Email: hello@lumensapor.com</li>
+              <li>Email: @lumensapor.com</li>
             </ul>
           </div>
 
