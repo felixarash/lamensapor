@@ -40,7 +40,7 @@ export const featuredItems = [
     name: 'Matcha Latte',
     description: 'Premium Japanese matcha with steamed milk',
     price: 5.99,
-    image: '/products/latte.jpg',
+    image: '/products/latte.webp',
     category: 'beverages',
     inventory: 80
   },

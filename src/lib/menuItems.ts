@@ -79,7 +79,7 @@ export const menuItems = [
       name: 'Tuna Melt',
       description: 'Tuna salad with melted cheddar on sourdough',
       price: 12.99,
-      image: '/images/products/tuna-melt.webp',
+      image: '/products/tuna-melt.webp',
       category: 'lunch',
       inventory: 35
     },
@@ -88,7 +88,7 @@ export const menuItems = [
       name: 'Veggie Wrap',
       description: 'Fresh vegetables and hummus in a spinach wrap',
       price: 11.99,
-      image: '/images/products/veggie-wrap.webp',
+      image: '/products/veggie-wrap.webp',
       category: 'lunch',
       inventory: 30
     },
@@ -99,7 +99,7 @@ export const menuItems = [
       name: 'Grilled Salmon',
       description: 'Fresh salmon with lemon herb butter and seasonal vegetables',
       price: 24.99,
-      image: '/images/products/grilled-salmon.webp',
+      image: '/products/grilled-salmon.webp',
       category: 'dinner',
       inventory: 25
     },
@@ -108,7 +108,7 @@ export const menuItems = [
       name: 'Ribeye Steak',
       description: '12oz ribeye with garlic mashed potatoes and asparagus',
       price: 29.99,
-      image: '/images/products/ribeye-steak.webp',
+      image: '/products/ribeye-steak.webp',
       category: 'dinner',
       inventory: 20
     },
@@ -117,7 +117,7 @@ export const menuItems = [
       name: 'Pasta Primavera',
       description: 'Fresh pasta with seasonal vegetables in light cream sauce',
       price: 18.99,
-      image: '/images/products/pasta-primavera.webp',
+      image: '/products/pasta-primavera.webp',
       category: 'dinner',
       inventory: 30
     },
@@ -126,7 +126,7 @@ export const menuItems = [
       name: 'Roasted Chicken',
       description: 'Half chicken with herbs, roasted potatoes and vegetables',
       price: 21.99,
-      image: '/images/products/roasted-chicken.webp',
+      image: '/products/roasted-chicken.webp',
       category: 'dinner',
       inventory: 25
     },
@@ -137,7 +137,7 @@ export const menuItems = [
       name: 'Artisan Coffee',
       description: 'Rich, locally roasted organic coffee',
       price: 4.99,
-      image: '/images/products/coffee.webp',
+      image: '/products/coffee.webp',
       category: 'beverages',
       inventory: 100
     },
@@ -146,7 +146,7 @@ export const menuItems = [
       name: 'Fresh Orange Juice',
       description: 'Freshly squeezed orange juice',
       price: 4.99,
-      image: '/images/products/orange-juice.webp',
+      image: '/products/orange-juice.webp',
       category: 'beverages',
       inventory: 80
     },
@@ -155,7 +155,7 @@ export const menuItems = [
       name: 'Matcha Latte',
       description: 'Premium Japanese matcha with steamed milk',
       price: 5.99,
-      image: '/images/products/matcha-latte.webp',
+      image: '/products/latte.webp',
       category: 'beverages',
       inventory: 80
     }
