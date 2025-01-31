@@ -4,7 +4,7 @@ export const featuredItems = [
     name: 'Artisan Coffee',
     description: 'Rich, locally roasted organic coffee with complex flavors',
     price: 4.99,
-    image: '/products/product1.jpg',
+    image: '/products/product1.webp',
     category: 'beverages',
     inventory: 100
   },
@@ -13,7 +13,7 @@ export const featuredItems = [
     name: 'Avocado Toast',
     description: 'Fresh avocado on sourdough with cherry tomatoes',
     price: 12.99,
-    image: '/products/avocado-toast.jpg',
+    image: '/products/avocado-toast.webp',
     category: 'breakfast',
     inventory: 50
   },
@@ -22,7 +22,7 @@ export const featuredItems = [
     name: 'Quinoa Bowl',
     description: 'Nutrient-rich quinoa with roasted vegetables',
     price: 14.99,
-    image: '/products/qpolina.jpg',
+    image: '/products/qpolina.webp',
     category: 'lunch',
     inventory: 30
   },
@@ -31,7 +31,7 @@ export const featuredItems = [
     name: 'Greek Salad',
     description: 'Fresh Mediterranean salad with feta cheese',
     price: 11.99,
-    image: '/products/greeksalad.jpg',
+    image: '/products/greeksalad.webp',
     category: 'lunch',
     inventory: 40
   },
@@ -49,7 +49,7 @@ export const featuredItems = [
     name: 'Berry Smoothie',
     description: 'Mixed berries blended with yogurt and honey',
     price: 6.99,
-    image: '/products/berrysmothie.jpg',
+    image: '/products/berrysmothie.webp',
     category: 'beverages',
     inventory: 60
   }

@@ -36,10 +36,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-primary dark:text-white">Contact Us</h4>
             <ul className="space-y-2 body-text dark:text-gray-300">
-              <li>123 Restaurant Street</li>
-              <li>City, State 12345</li>
-              <li>Phone: (123) 456-7890</li>
-              <li>Email: @lumensapor.com</li>
+              <li>123 ST Restaurant Street</li>
+              <li>Karachi DHA PHASE 8, Sindh </li>
+              <li>Phone: +92 3282-209077</li>
+              <li>Email: fozanahmedm9@gmail.com</li>
             </ul>
           </div>
 
