@@ -52,7 +52,7 @@ export const menuItems = [
       name: 'Grilled Chicken Salad',
       description: 'Mixed greens with grilled chicken and balsamic dressing',
       price: 14.99,
-      image: '/products/chicken-salad.webp',
+      image: '/products/grillchicken.webp',
       category: 'lunch',
       inventory: 35
     },
@@ -61,7 +61,7 @@ export const menuItems = [
       name: 'Club Sandwich',
       description: 'Triple-decker with turkey, bacon, lettuce, and tomato',
       price: 13.99,
-      image: '/products/club-sandwich.webp',
+      image: '/products/sandwich.webp',
       category: 'lunch',
       inventory: 45
     },
@@ -79,7 +79,7 @@ export const menuItems = [
       name: 'Tuna Melt',
       description: 'Tuna salad with melted cheddar on sourdough',
       price: 12.99,
-      image: '/products/tuna-melt.webp',
+      image: '/products/tuna.webp',
       category: 'lunch',
       inventory: 35
     },
@@ -88,7 +88,7 @@ export const menuItems = [
       name: 'Veggie Wrap',
       description: 'Fresh vegetables and hummus in a spinach wrap',
       price: 11.99,
-      image: '/products/veggie-wrap.webp',
+      image: '/products/vegie.webp',
       category: 'lunch',
       inventory: 30
     },
@@ -99,7 +99,7 @@ export const menuItems = [
       name: 'Grilled Salmon',
       description: 'Fresh salmon with lemon herb butter and seasonal vegetables',
       price: 24.99,
-      image: '/products/grilled-salmon.webp',
+      image: '/products/grilledsalmon.webp',
       category: 'dinner',
       inventory: 25
     },
@@ -108,7 +108,7 @@ export const menuItems = [
       name: 'Ribeye Steak',
       description: '12oz ribeye with garlic mashed potatoes and asparagus',
       price: 29.99,
-      image: '/products/ribeye-steak.webp',
+      image: '/products/steak.webp',
       category: 'dinner',
       inventory: 20
     },
@@ -117,7 +117,7 @@ export const menuItems = [
       name: 'Pasta Primavera',
       description: 'Fresh pasta with seasonal vegetables in light cream sauce',
       price: 18.99,
-      image: '/products/pasta-primavera.webp',
+      image: '/products/pasta.webp',
       category: 'dinner',
       inventory: 30
     },
@@ -126,7 +126,7 @@ export const menuItems = [
       name: 'Roasted Chicken',
       description: 'Half chicken with herbs, roasted potatoes and vegetables',
       price: 21.99,
-      image: '/products/roasted-chicken.webp',
+      image: '/products/roastedchick.webp',
       category: 'dinner',
       inventory: 25
     },
@@ -137,7 +137,7 @@ export const menuItems = [
       name: 'Artisan Coffee',
       description: 'Rich, locally roasted organic coffee',
       price: 4.99,
-      image: '/products/coffee.webp',
+      image: '/products/copfee.webp',
       category: 'beverages',
       inventory: 100
     },
@@ -146,7 +146,7 @@ export const menuItems = [
       name: 'Fresh Orange Juice',
       description: 'Freshly squeezed orange juice',
       price: 4.99,
-      image: '/products/orange-juice.webp',
+      image: '/products/orange.webp',
       category: 'beverages',
       inventory: 80
     },
