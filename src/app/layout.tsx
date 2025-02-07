@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CartSidebar from '@/components/cart/CartSidebar'
-import { Providers } from '@/components/Providers/Providers'
+import { Providers } from '@/components/providers/Providers'
 import '@/app/globals.css'
 
 const inter = Inter({ 
