@@ -4,6 +4,7 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
+import Link from 'next/link'
 
 export default function SignInPage() {
   const router = useRouter()
@@ -40,7 +41,60 @@ export default function SignInPage() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      {/* Rest of your form JSX */}
+      <div className="max-w-md mx-auto">
+        <h1 className="text-2xl font-bold mb-6">Sign In</h1>
+        
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.email}
+              onChange={(e) => setFormData(prev => ({
+                ...prev,
+                email: e.target.value
+              }))}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium mb-2">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.password}
+              onChange={(e) => setFormData(prev => ({
+                ...prev,
+                password: e.target.value
+              }))}
+            />
+          </div>
+
+          <button 
+            type="submit"
+            className="w-full bg-primary text-white p-2 rounded"
+            disabled={loading}
+          >
+            {loading ? 'Signing in...' : 'Sign In'}
+          </button>
+        </form>
+
+        <p className="mt-4 text-center text-gray-600">
+          Don&apos;t have an account?{' '}
+          <Link href="/signup" className="text-primary">
+            Sign Up
+          </Link>
+        </p>
+      </div>
     </div>
   )
 }
