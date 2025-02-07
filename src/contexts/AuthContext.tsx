@@ -4,18 +4,33 @@ import { createContext, useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { client } from '@/lib/sanity'
 
+interface User {
+  id: string
+  name: string
+  email: string
+  createdAt: string
+  profileImage?: string
+}
+
+interface SignupData {
+  name: string
+  email: string
+  password: string
+  profileImage?: string
+}
+
 interface AuthContextType {
-  user: unknown
+  user: User | null
   loading: boolean
   login: (email: string, password: string) => Promise<void>
   logout: () => void
-  signup: (userData: Record<string, any>) => Promise<void>
+  signup: (userData: SignupData) => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<any | null>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
@@ -59,7 +74,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     router.push('/')
   }
 
-  const signup = async (userData: Record<string, any>) => {
+  const signup = async (userData: SignupData) => {
     try {
       // Create user in Sanity
       const newUser = await client.create({

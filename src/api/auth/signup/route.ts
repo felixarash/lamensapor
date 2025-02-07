@@ -8,6 +8,12 @@ interface SignupRequestBody {
   password: string
 }
 
+interface SignupRequest {
+  name: string
+  email: string
+  password: string
+}
+
 type User = {
   id: string
   name: string
