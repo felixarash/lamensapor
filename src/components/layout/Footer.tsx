@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
           <div className="text-center">
             <p className="text-gray-600 dark:text-gray-300">
-              &copy; {new Date().getFullYear()} Lumen Sapor. All rights reserved.
+              &copy; {new Date().getFullYear()} Lumen Sapor. All rights reserved. Developed by Fozan Ahmed
             </p>
           </div>
         </div>
