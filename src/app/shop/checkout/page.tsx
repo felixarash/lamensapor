@@ -2,22 +2,58 @@
 
 import { useCart } from '@/contexts/CartContext'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { toast } from 'react-hot-toast'
 
 export default function CheckoutPage() {
-  const { items, clearCart } = useCart()
+  const router = useRouter()
+  const { items, clearCart, subtotal } = useCart()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    postalCode: ''
+  })
+
+  // Ensure we have a valid subtotal
+  const total = subtotal || 0
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate order submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    clearCart()
-    setIsSubmitting(false)
-    // Redirect to success page or show success message
+    try {
+      // Here you would typically send the order to your backend
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Clear cart and show success message
+      clearCart()
+      toast.success('Order placed successfully!')
+      router.push('/shop/order-success')
+    } catch (error) {
+      toast.error('Failed to place order')
+      console.error('Checkout error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (items.length === 0) {
+    return (
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="heading-1 mb-4">Your cart is empty</h1>
+        <button 
+          onClick={() => router.push('/menu')}
+          className="btn-primary"
+        >
+          Continue Shopping
+        </button>
+      </div>
+    )
   }
 
   return (
@@ -38,7 +74,12 @@ export default function CheckoutPage() {
                     type="email"
                     id="email"
                     required
-                    className="form-input"
+                    className="w-full p-2 border rounded"
+                    value={formData.email}
+                    onChange={(e) => setFormData(prev => ({
+                      ...prev,
+                      email: e.target.value
+                    }))}
                   />
                 </div>
                 <div>
@@ -49,7 +90,12 @@ export default function CheckoutPage() {
                     type="tel"
                     id="phone"
                     required
-                    className="form-input"
+                    className="w-full p-2 border rounded"
+                    value={formData.phone}
+                    onChange={(e) => setFormData(prev => ({
+                      ...prev,
+                      phone: e.target.value
+                    }))}
                   />
                 </div>
               </div>
@@ -67,7 +113,12 @@ export default function CheckoutPage() {
                       type="text"
                       id="firstName"
                       required
-                      className="form-input"
+                      className="w-full p-2 border rounded"
+                      value={formData.firstName}
+                      onChange={(e) => setFormData(prev => ({
+                        ...prev,
+                        firstName: e.target.value
+                      }))}
                     />
                   </div>
                   <div>
@@ -78,7 +129,12 @@ export default function CheckoutPage() {
                       type="text"
                       id="lastName"
                       required
-                      className="form-input"
+                      className="w-full p-2 border rounded"
+                      value={formData.lastName}
+                      onChange={(e) => setFormData(prev => ({
+                        ...prev,
+                        lastName: e.target.value
+                      }))}
                     />
                   </div>
                 </div>
@@ -90,7 +146,12 @@ export default function CheckoutPage() {
                     type="text"
                     id="address"
                     required
-                    className="form-input"
+                    className="w-full p-2 border rounded"
+                    value={formData.address}
+                    onChange={(e) => setFormData(prev => ({
+                      ...prev,
+                      address: e.target.value
+                    }))}
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -102,7 +163,12 @@ export default function CheckoutPage() {
                       type="text"
                       id="city"
                       required
-                      className="form-input"
+                      className="w-full p-2 border rounded"
+                      value={formData.city}
+                      onChange={(e) => setFormData(prev => ({
+                        ...prev,
+                        city: e.target.value
+                      }))}
                     />
                   </div>
                   <div>
@@ -113,7 +179,12 @@ export default function CheckoutPage() {
                       type="text"
                       id="postalCode"
                       required
-                      className="form-input"
+                      className="w-full p-2 border rounded"
+                      value={formData.postalCode}
+                      onChange={(e) => setFormData(prev => ({
+                        ...prev,
+                        postalCode: e.target.value
+                      }))}
                     />
                   </div>
                 </div>
@@ -123,7 +194,7 @@ export default function CheckoutPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn-secondary w-full"
+              className="btn-primary w-full"
             >
               {isSubmitting ? 'Processing...' : `Pay $${total.toFixed(2)}`}
             </button>
@@ -143,10 +214,10 @@ export default function CheckoutPage() {
                   <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
               ))}
-              <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+              <div className="border-t border-gray-200 pt-4">
                 <div className="flex justify-between font-bold">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>${subtotal.toFixed(2)}</span>
                 </div>
               </div>
             </div>

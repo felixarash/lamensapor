@@ -31,9 +31,8 @@ export default function SignInPage() {
         toast.success('Signed in successfully')
         router.push('/')
       }
-    } catch (error) {
+    } catch {
       toast.error('An error occurred')
-      console.error(error)
     } finally {
       setLoading(false)
     }
@@ -58,7 +57,7 @@ export default function SignInPage() {
               onChange={(e) => setFormData(prev => ({
                 ...prev,
                 email: e.target.value
-              }))} 
+              }))}
             />
           </div>
 
@@ -75,7 +74,7 @@ export default function SignInPage() {
               onChange={(e) => setFormData(prev => ({
                 ...prev,
                 password: e.target.value
-              }))} 
+              }))}
             />
           </div>
 
@@ -90,7 +89,7 @@ export default function SignInPage() {
 
         <p className="mt-4 text-center text-gray-600">
           Don't have an account?{' '}
-          <Link href="/signup" className="text-primary hover:underline">
+          <Link href="/signup" className="text-primary">
             Sign Up
           </Link>
         </p>

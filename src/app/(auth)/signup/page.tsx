@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { toast } from 'react-hot-toast'
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -12,17 +13,19 @@ export default function SignUpPage() {
     password: '',
     confirmPassword: ''
   })
-  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match')
-      return
-    }
+    setLoading(true)
 
     try {
+      if (formData.password !== formData.confirmPassword) {
+        toast.error('Passwords do not match')
+        setLoading(false)
+        return
+      }
+
       const response = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: {
@@ -35,29 +38,28 @@ export default function SignUpPage() {
         })
       })
 
-      if (response.ok) {
-        router.push('/signin')
-      } else {
-        const data = await response.json()
-        setError(data.message || 'An error occurred during sign up')
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong')
       }
-    } catch  {
-      setError('An error occurred during sign up')
+
+      toast.success('Account created successfully')
+      router.push('/signin')
+    } catch (error: any) {
+      toast.error(error.message || 'An error occurred')
+      console.error('Signup error:', error)
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="max-w-md mx-auto">
-        <h1 className="heading-1 mb-8">Sign Up</h1>
+        <h1 className="text-2xl font-bold mb-6">Create Account</h1>
         
-        {error && (
-          <div className="bg-red-50 text-red-500 p-4 rounded-lg mb-6">
-            {error}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-2">
               Name
@@ -66,7 +68,7 @@ export default function SignUpPage() {
               type="text"
               id="name"
               required
-              className="form-input"
+              className="w-full p-2 border rounded"
               value={formData.name}
               onChange={(e) => setFormData(prev => ({
                 ...prev,
@@ -83,7 +85,7 @@ export default function SignUpPage() {
               type="email"
               id="email"
               required
-              className="form-input"
+              className="w-full p-2 border rounded"
               value={formData.email}
               onChange={(e) => setFormData(prev => ({
                 ...prev,
@@ -100,7 +102,7 @@ export default function SignUpPage() {
               type="password"
               id="password"
               required
-              className="form-input"
+              className="w-full p-2 border rounded"
               value={formData.password}
               onChange={(e) => setFormData(prev => ({
                 ...prev,
@@ -117,7 +119,7 @@ export default function SignUpPage() {
               type="password"
               id="confirmPassword"
               required
-              className="form-input"
+              className="w-full p-2 border rounded"
               value={formData.confirmPassword}
               onChange={(e) => setFormData(prev => ({
                 ...prev,
@@ -126,14 +128,18 @@ export default function SignUpPage() {
             />
           </div>
 
-          <button type="submit" className="btn-primary w-full">
-            Sign Up
+          <button 
+            type="submit"
+            className="w-full bg-primary text-white p-2 rounded"
+            disabled={loading}
+          >
+            {loading ? 'Creating account...' : 'Sign Up'}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-text-light">
+        <p className="mt-4 text-center text-gray-600">
           Already have an account?{' '}
-          <Link href="/signin" className="text-primary hover:text-primary-dark">
+          <Link href="/signin" className="text-primary hover:underline">
             Sign In
           </Link>
         </p>

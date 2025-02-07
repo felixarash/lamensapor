@@ -1,23 +1,20 @@
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { CartProvider } from '@/contexts/CartContext'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CartSidebar from '@/components/cart/CartSidebar'
+import { Providers } from '@/components/providers/Providers'
 import '@/app/globals.css'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter'
 })
 
-const playfair = Playfair_Display({ 
-  subsets: ['latin'],
-  variable: '--font-playfair'
-})
-
 export const metadata = {
-  title: 'Lumen Sapor Cafe',
-  description: 'Artisanal food and beverages crafted with passion',
+  title: 'LamenSapor',
+  description: 'Artisanal food and beverages',
 }
 
 export default function RootLayout({
@@ -27,15 +24,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <CartProvider>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <Providers>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
-            <CartSidebar />
-            <Footer />
+            <CartProvider>
+              <main className="flex-1">{children}</main>
+              <CartSidebar />
+              <Footer />
+              <Toaster position="top-right" />
+            </CartProvider>
           </div>
-        </CartProvider>
+        </Providers>
       </body>
     </html>
   )

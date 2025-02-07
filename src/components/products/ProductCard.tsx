@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useCart } from '@/contexts/CartContext'
 
 type ProductCardProps = {
   id: string
@@ -10,11 +11,22 @@ type ProductCardProps = {
   description: string
   price: number
   image: string
-  category?: string
+  category: string
 }
 
 export default function ProductCard({ id, name, description, price, image, category }: ProductCardProps) {
   const [isImageLoading, setIsImageLoading] = useState(true)
+  const { addToCart } = useCart()
+
+  const handleAddToCart = () => {
+    addToCart({
+      id,
+      name,
+      price,
+      image,
+      quantity: 1
+    })
+  }
 
   return (
     <div className="group relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl">
@@ -54,7 +66,7 @@ export default function ProductCard({ id, name, description, price, image, categ
             ${price.toFixed(2)}
           </span>
           <button 
-            onClick={() => {/* Add to cart functionality */}}
+            onClick={handleAddToCart}
             className="bg-secondary hover:bg-secondary-dark text-white px-4 py-2 rounded-lg text-sm transition-colors duration-200"
           >
             Add to Cart
