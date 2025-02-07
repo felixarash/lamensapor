@@ -2,6 +2,7 @@
 
 import { useCart } from '@/contexts/CartContext'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, clearCart } = useCart()
@@ -26,10 +27,12 @@ export default function CartPage() {
                 <div key={item.id} className="card p-4">
                   <div className="cart-item">
                     <div className="cart-item-image">
-                      <img 
+                      <Image 
                         src={item.image} 
                         alt={item.name}
-                        className="object-cover w-full h-full rounded-md"
+                        width={200}
+                        height={200}
+                        className="object-cover rounded-lg"
                       />
                     </div>
                     <div className="cart-item-details">

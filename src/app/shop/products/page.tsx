@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { menuItems } from '@/lib/menuItems'
+import Image from 'next/image'
 
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -40,10 +41,12 @@ export default function ProductsPage() {
         {filteredProducts.map((product) => (
           <div key={product._id} className="card p-4 hover:scale-105 transition-transform">
             <div className="relative aspect-square mb-4">
-              <img
+              <Image 
                 src={product.image}
                 alt={product.name}
-                className="object-cover rounded-lg w-full h-full"
+                width={200}
+                height={200}
+                className="object-cover rounded-lg"
               />
             </div>
             <h3 className="heading-3 mb-2">{product.name}</h3>

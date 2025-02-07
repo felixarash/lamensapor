@@ -1,10 +1,7 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import bcrypt from 'bcryptjs'
-import { NextResponse } from 'next/server'
 import type { User } from '@/types' // Add this type
 
-// Change var to let and add type
 declare global {
   let users: User[]
 }

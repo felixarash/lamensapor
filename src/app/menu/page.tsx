@@ -20,9 +20,7 @@ export default function MenuPage() {
 
   const categories = ['all', 'breakfast', 'lunch', 'dinner', 'beverages']
   
-  const [menuItems, setMenuItems] = useState<MenuItem[]>(initialMenuItems)
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  const [menuItems] = useState<MenuItem[]>(initialMenuItems) // Remove unused setMenuItems
 
   const filteredProducts = activeCategory === 'all' 
     ? menuItems 
@@ -50,7 +48,7 @@ export default function MenuPage() {
     }
 
     preloadImages()
-  }, [])
+  }, [menuItems]) // Add menuItems to dependency array
 
   const handleAddToCart = (item: MenuItem) => {
     addToCart({
