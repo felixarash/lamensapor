@@ -2,12 +2,6 @@ import { NextResponse } from 'next/server'
 import bcrypt from 'bcryptjs'
 import { cookies } from 'next/headers'
 
-interface SignupRequestBody {
-  name: string
-  email: string
-  password: string
-}
-
 interface SignupRequest {
   name: string
   email: string
