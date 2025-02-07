@@ -2,10 +2,11 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 import { NextResponse } from 'next/server'
+import type { User } from '@/types' // Add this type
 
-// Reference the in-memory users array
+// Change var to let and add type
 declare global {
-  var users: any[]
+  let users: User[]
 }
 
 if (!global.users) {

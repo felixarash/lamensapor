@@ -19,9 +19,17 @@ type User = {
 // In production, use a proper database
 const users: User[] = []
 
+// Use the interface in the code or remove it if unused
+interface SignupRequest {
+  name: string
+  email: string
+  password: string
+}
+
 export async function POST(req: Request) {
   try {
-    const { name, email, password } = await req.json()
+    const body = await req.json() as SignupRequest
+    const { name, email, password } = body
 
     if (!name || !email || !password) {
       return new NextResponse(

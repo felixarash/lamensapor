@@ -2,8 +2,16 @@
 
 import { useState, useEffect } from 'react'
 import { useCart } from '@/contexts/CartContext'
-import { menuItems } from '@/lib/menuItems'
+import { menuItems as initialMenuItems } from '@/lib/menuItems'
 import Image from 'next/image'
+
+// Add proper types
+interface MenuItem {
+  id: string
+  name: string
+  price: number
+  image: string
+}
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -12,6 +20,10 @@ export default function MenuPage() {
 
   const categories = ['all', 'breakfast', 'lunch', 'dinner', 'beverages']
   
+  const [menuItems, setMenuItems] = useState<MenuItem[]>(initialMenuItems)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
+
   const filteredProducts = activeCategory === 'all' 
     ? menuItems 
     : menuItems.filter(item => item.category === activeCategory)
@@ -40,9 +52,9 @@ export default function MenuPage() {
     preloadImages()
   }, [])
 
-  const handleAddToCart = (item: any) => {
+  const handleAddToCart = (item: MenuItem) => {
     addToCart({
-      id: item._id,
+      id: item.id,
       name: item.name,
       price: item.price,
       image: item.image,
@@ -91,7 +103,7 @@ export default function MenuPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {filteredProducts.map((item) => (
-          <div key={item._id} className="card p-4 hover:scale-105 transition-transform">
+          <div key={item.id} className="card p-4 hover:scale-105 transition-transform">
             <div className="relative aspect-square mb-4">
               <Image
                 src={item.image}
